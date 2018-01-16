@@ -8,13 +8,25 @@
 
   <body>
     {% include header.html content="toplevel" %}
-    {% include secondHeader.html content="datasets" %}
 
     <div class="page-content">
-      <div class="wrapper">
+
+      {% include sidebar2.html content="datasets" %}
+
+      <div class="wrapper2">
+
         {{ content }}
+
       </div>
+
+
+
+
+      </div>
+
+
     </div>
+
 
     {% include footer.html %}
 

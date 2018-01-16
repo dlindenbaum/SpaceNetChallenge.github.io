@@ -8,13 +8,13 @@
 
   <body>
     {% include header.html content="toplevel" %}
-    {% include secondHeader.html content="competitions" %}
 
     <div class="page-content">
       <div class="wrapper">
         {{ content }}
       </div>
     </div>
+    {% include sidebar2.html content="competitions" %}
 
     {% include footer.html %}
 
