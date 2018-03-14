@@ -1,6 +1,6 @@
 ---
 layout: datasets
-title: "SpaceNet Buildings Dataset"
+title: "SpaceNet Buildings Dataset V2"
 sidebar: datasets
 ---
 
@@ -38,7 +38,6 @@ td{
 
 |  AOI            | Area of Raster (Sq. Km) | Building Labels (Polygons) | 
 |----------------|-------------------------|----------------------------|
-| [AOI_1_Rio](/AOI_Lists/AOI_1_Rio.html)      | 2,544                   | 382,534                  | 
 | [AOI_2_Vegas](/AOI_Lists/AOI_2_Vegas.html)     | 216                     | 151,367                    |
 | [AOI_3_Paris](/AOI_Lists/AOI_3_Paris.html)    | 1,030                   | 23,816                     |
 | [AOI_4_Shanghai](/AOI_Lists/AOI_4_Shanghai.html) | 1,000                   | 92,015                     |
@@ -48,10 +47,7 @@ td{
 ## Catalog
 The data is hosted on AWS in a requester pays bucket.
 ```commandline
-aws s3 ls s3://spacenet-dataset/SpaceNet_Buildings_Competition_Round1/ --request-payer requester
-aws s3 ls s3://spacenet-dataset/SpaceNet_Buildings_Competition_Round2/ --request-payer requester
-
-
+aws s3 ls s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/
 ```
 
 # The Metric
@@ -63,60 +59,68 @@ For more information read the full article on [The DownlinQ](https://medium.com/
 ### 10 Samples from each AOI -  Road Network Extraction Samples
 To download processed 400mx400m tiles of AOI 2 (728.8 MB) with associated road centerlines for training do the following:
 ```
-aws s3api get-object --bucket spacenet-dataset --key SpaceNet_Roads_Competition/SpaceNet_Roads_Sample.tar.gz --request-payer requester AOI_2_Vegas_Roads_Train.tar.gz
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/SpaceNet_Buildings_Competition_Round2_Sample.tar.gz .
 ```
 
 
 
-## Training Data
+## Training Data (57.3 GB)
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/ . --recursive 
+```
 ### AOI 2 - Vegas -  Building Extraction Training
 To download processed 200mx200m tiles of AOI 2 (23 GB) with associated building footprints for training do the following:
-```
-aws s3api get-object --bucket spacenet-dataset --key AOI_2_Vegas/AOI_2_Vegas_Train.tar.gz --request-payer requester AOI_2_Vegas_Train.tar.gz
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/AOI_2_Vegas_Train.tar.gz .
 ```
 
 ### AOI 3 - Paris - Building Extraction Training
 To download processed 200mx200m tiles of AOI 3 (5.3 GB) with associated building footprints do the following:
-```
-aws s3api get-object --bucket spacenet-dataset --key AOI_3_Paris/AOI_3_Paris_Train.tar.gz --request-payer requester AOI_3_Paris_Train.tar.gz
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/AOI_3_Paris_Train.tar.gz .
 ```
 
 ### AOI 4 - Shanghai - Building Extraction Training
 To download processed 200mx200m tiles of AOI 4 (23.4 GB) with associated building footprints do the following:
-```
-aws s3api get-object --bucket spacenet-dataset --key AOI_4_Shanghai/AOI_4_Shanghai_Train.tar.gz --request-payer requester AOI_4_Shanghai_Train.tar.gz
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/AOI_4_Shanghai_Train.tar.gz .
 ```
 
 ### AOI 5 - Khartoum - Building Extraction Training
 To download processed 200mx200m tiles of AOI 2 (4.7 GB) with associated building footprints do the following:
-```
-aws s3api get-object --bucket spacenet-dataset --key AOI_5_Khartoum/AOI_5_Khartoum_Train.tar.gz --request-payer requester AOI_5_Khartoum_Train.tar.gz
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/AOI_5_Khartoum_Train.tar.gz .
 ```
 
 
 ## Test Data
+## Test Data (19 GB)
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/ . --recursive 
+```
+
 ### AOI 2 - Vegas - Building Extraction Testing
 To download processed 200mx200m tiles of AOI 2 (7.9 GB) for testing do:
-```
-aws s3api get-object --bucket spacenet-dataset --key AOI_2_Vegas/AOI_2_Vegas_Test_public.tar.gz --request-payer requester AOI_2_Vegas_Train.tar.gz
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/AOI_2_Vegas_Test_public.tar.gz .
 ```
 
 ### AOI 3 - Paris - Building Extraction Testing
 To download processed 200mx200m tiles of AOI 3 (1.8 GB) for testing do:
-```
-aws s3api get-object --bucket spacenet-dataset --key AOI_3_Paris/AOI_3_Paris_Test_public.tar.gz --request-payer requester AOI_3_Paris_Test_public.tar.gz
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/AOI_3_Paris_Test_public.tar.gz .
 ```
 
 ### AOI 4 - Shanghai - Building Extraction Testing
 To download processed 200mx200m tiles of AOI 4 (7.7 GB) for testing do:
-```
-aws s3api get-object --bucket spacenet-dataset --key AOI_4_Shanghai/AOI_4_Shanghai_Test_public.tar.gz --request-payer requester AOI_4_Shanghai_Train.tar.gz
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/AOI_4_Shanghai_Test_public.tar.gz .
 ```
 
 ### AOI 5 - Khartoum - Building Extraction Testing
 To download processed 200mx200m tiles of AOI 2 (1.6 GB) for testing do:
-```
-aws s3api get-object --bucket spacenet-dataset --key AOI_5_Khartoum/AOI_5_Khartoum_Test_public.tar.gz --request-payer requester AOI_5_Khartoum_Train.tar.gz
+```bash
+aws s3 cp s3://spacenet-dataset/SpaceNet_Buildings_Dataset_Round2/spacenetV2_Train/AOI_5_Khartoum_Test_public.tar.gz .
 ```
 
 # The Metric

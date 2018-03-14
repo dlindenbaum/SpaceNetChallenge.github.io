@@ -11,12 +11,13 @@
 
 
     <div class="page-content">
-      <div class="wrapper">
+          {% include sidebar2.html content="aoi" %}
+
+      <div class="wrapper2">
         {{ content }}
       </div>
     </div>
 
-    {% include sidebar2.html content="aoi" %}
     {% include footer.html %}
 
   </body>
